@@ -14,33 +14,35 @@ function App() {
   }
   return (
     <Router>
-    <div className = "grid-container">
-        {/* <meta name="viewport" content="width=device-width, initial-scale=1"> */}
-        <link rel="stylesheet" href="style.css"></link>
-        <title>JadeSprout</title>
-          <header className="header">
-              <div className="brand">
-                  <button onClick={openMenu}>☰</button>
-                  <a href="index.html">JadeSprout</a>
-              </div>
-              <div className="header-links">
-                  <Link to="/">Home</Link>
-                  <Link to="/catalog">Catalog</Link>
-              </div>
-          </header>
-          <aside className="sidebar">
-              <h3>Shopping Categories</h3>
-              <button className="sidebar-close-button" onClick={closeMenu}>x</button>
-              <ul>
-                  <li>
-                      <a href="index.html">Pants</a>
-                  </li>
+        <div className = "grid-container">
+            <link rel="stylesheet" href="style.css" />
+            <title>JadeSprout</title>
 
-                  <li>
-                      <a href="index.html">Shirts</a>
-                  </li>
-              </ul>
-          </aside>
+        <body>
+            <div>
+                <header className="header">
+                    <div className="brand">
+                        <button onClick={openMenu}>☰</button>
+                        <a href="index.html">JadeSprout</a>
+                    </div>
+                    <div className="header-links">
+                        <Link to="/">Home</Link>
+                        <Link to="/catalog">Catalog</Link>
+                    </div>
+                </header>
+                <aside className="sidebar">
+                    <h3>Shopping Categories</h3>
+                    <button className="sidebar-close-button" onClick={closeMenu}>x</button>
+                    <ul>
+                        <li>
+                            <a href="index.html">Pants</a>
+                        </li>
+
+                        <li>
+                            <a href="index.html">Shirts</a>
+                        </li>
+                    </ul>
+                </aside>
           <main className="main">
             <Routes>
                 <Route path="/" element={<Home />} />
@@ -50,8 +52,10 @@ function App() {
           <footer>
               <div className="header"> © 2024 JadeSprout</div>
           </footer>
+          </div>
+        </body>
       </div>
-      </Router>
+    </Router>
   );
 }
 
