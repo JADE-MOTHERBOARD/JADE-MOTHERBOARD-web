@@ -25,11 +25,13 @@ function App() {
                         <button onClick={openMenu}>☰</button>
                         <a href="index.html">JadeSprout</a>
                     </div>
+
                     <div className="header-links">
                         <Link to="/">Home</Link>
                         <Link to="/catalog">Catalog</Link>
                     </div>
                 </header>
+                
                 <aside className="sidebar">
                     <h3>Shopping Categories</h3>
                     <button className="sidebar-close-button" onClick={closeMenu}>x</button>
