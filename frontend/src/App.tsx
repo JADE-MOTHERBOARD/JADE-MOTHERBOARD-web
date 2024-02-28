@@ -1,6 +1,9 @@
 import React from 'react';
-import logo from './logo.svg';
+/*import logo from './logo.svg';*/
 import './App.css';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import Home from "./Home/Home";
+import Products from "./Products/Products";
 
 function App() {
   const openMenu = () => {
@@ -10,100 +13,51 @@ function App() {
     document.querySelector(".sidebar")?.classList.add("close");
   }
   return (
-    <div className = "grid-container">
-        {/* <meta name="viewport" content="width=device-width, initial-scale=1"> */}
-      <head>
-        <link rel="stylesheet" href="style.css"></link>
-        <title>JadeSprout</title>
-      </head>
-          <header className="header">
-              <div className="brand">
-                  <button onClick={openMenu}>☰</button>
-                  <a href="index.html">JadeSprout</a>
-              </div>
-              <div className="header-links">
-                  <a href="cart.html">Cart</a>
-                  <a href="signin.html">Sign In</a>
-              </div>
-          </header>
-          <aside className="sidebar">
-              <h3>Shopping Categories</h3>
-              <button className="sidebar-close-button" onClick={closeMenu}>x</button>
-              <ul>
-                  <li>
-                      <a href="index.html">Pants</a>
-                  </li>
+    <Router>
+        <div className = "grid-container">
+            <link rel="stylesheet" href="style.css" />
+            <title>JadeSprout</title>
 
-                  <li>
-                      <a href="index.html">Shirts</a>
-                  </li>
-              </ul>
-          </aside>
-          <main>
-              <div className="content">
-                  <ul className="products">
-                      <li>
-                          <div className="product">
-                              <img className="product-image" src="images/d1.jpg" alt="product"></img>
-                              <div className="product-name">
-                                  <a href="product.html"> Slim Shirt</a>
-                              </div>
-                              <div className="product-brand">Nike</div>
-                              <div className="product-price">$60</div>
-                              <div className="product-rating">4.5 Stars (10 Reviews)</div>
-                          </div>
-                      </li>
-                      <li>
-                          <div className="product">
-                              <img className="product-image" src="images/d1.jpg" alt="product"></img>
-                              <div className="product-name">
-                                  <a href="product.html"> Slim Shirt</a>
-                              </div>
-                              <div className="product-brand">Nike</div>
-                              <div className="product-price">$60</div>
-                              <div className="product-rating">4.5 Stars (10 Reviews)</div>
-                          </div>
-                      </li>
-                      <li>
-                          <div className="product">
-                              <img className="product-image" src="images/d1.jpg" alt="product"></img>
-                              <div className="product-name">
-                                  <a href="product.html"> Slim Shirt</a>
-                              </div>
-                              <div className="product-brand">Nike</div>
-                              <div className="product-price">$60</div>
-                              <div className="product-rating">4.5 Stars (10 Reviews)</div>
-                          </div>
-                      </li>
-                      <li>
-                          <div className="product">
-                              <img className="product-image" src="images/d1.jpg" alt="product"></img>
-                              <div className="product-name">
-                                  <a href="product.html"> Slim Shirt</a>
-                              </div>
-                              <div className="product-brand">Nike</div>
-                              <div className="product-price">$60</div>
-                              <div className="product-rating">4.5 Stars (10 Reviews)</div>
-                          </div>
-                      </li>
-                      <li>
-                          <div className="product">
-                              <img className="product-image" src="images/d1.jpg" alt="product"></img>
-                              <div className="product-name">
-                                  <a href="product.html"> Slim Shirt</a>
-                              </div>
-                              <div className="product-brand">Nike</div>
-                              <div className="product-price">$60</div>
-                              <div className="product-rating">4.5 Stars (10 Reviews)</div>
-                          </div>
-                      </li>
-                  </ul>
-              </div>
+        <body>
+            <div>
+                <header className="header">
+                    <div className="brand">
+                        <button onClick={openMenu}>☰</button>
+                        <a href="index.html">JadeSprout</a>
+                    </div>
+
+                    <div className="header-links">
+                        <Link to="/">Home</Link>
+                        <Link to="/catalog">Catalog</Link>
+                    </div>
+                </header>
+                
+                <aside className="sidebar">
+                    <h3>Shopping Categories</h3>
+                    <button className="sidebar-close-button" onClick={closeMenu}>x</button>
+                    <ul>
+                        <li>
+                            <a href="index.html">Pants</a>
+                        </li>
+
+                        <li>
+                            <a href="index.html">Shirts</a>
+                        </li>
+                    </ul>
+                </aside>
+          <main className="main">
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/catalog" element={<Products />} />
+            </Routes>
           </main>
           <footer>
-              <a className="header"> © 2024 JadeSprout</a>
+              <div className="header"> © 2024 JadeSprout</div>
           </footer>
+          </div>
+        </body>
       </div>
+    </Router>
   );
 }
 
