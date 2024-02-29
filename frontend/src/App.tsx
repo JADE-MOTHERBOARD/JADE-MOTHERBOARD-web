@@ -4,6 +4,7 @@ import './App.css';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Home from "./Home/Home";
 import Products from "./Products/Products";
+import PaymentScreen from "./Payment/Payment"
 
 function App() {
   const openMenu = () => {
@@ -39,7 +40,6 @@ function App() {
                         <li>
                             <a href="index.html">Pants</a>
                         </li>
-
                         <li>
                             <a href="index.html">Shirts</a>
                         </li>
@@ -49,6 +49,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/catalog" element={<Products />} />
+                <Route path="payment" element={<PaymentScreen />}></Route>
             </Routes>
           </main>
           <footer>
