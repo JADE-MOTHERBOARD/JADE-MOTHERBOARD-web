@@ -1,10 +1,40 @@
-import data from "./data";
+import React, {useEffect, useState } from "react";
+import axios from "axios";
+import { NumberLiteralType } from "typescript";
+
+type Product = {
+    id: number;
+    name: string;
+    description: string;
+    brand: string;
+    price: number;
+    rating: number;
+    numberOfReviews: number;
+    imageUrl: string;
+}
+
+const emptyProducts: Product[] = [];
+
 
 function Products() {
+    const [products, setProducts]: [Product[], (products: Product[]) => void] = useState(emptyProducts);
+
+    useEffect(() => {
+        axios.get<Product[]>("https://localhost:3000/catalog/",{
+            headers: {
+                "Content-Type": "applications/json",
+            },
+        })
+        .then((response) => setProducts(response.data))
+        .catch((error) => console.log(error));
+    }, []);
+
+
+
     return (
      <div className="content">
         <ul className="products(">
-            {data.products.map((product: any) => (
+            {products.map((product: any) => (
                 <li>
                     <div className = "product">
                     <img
@@ -22,7 +52,7 @@ function Products() {
                     </div>
                     </div>
                 </li>
-            ))};
+            ))}
         </ul>
     </div>
  );
