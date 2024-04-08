@@ -30,7 +30,6 @@ function Products() {
     }, []);
 
 
-
     return (
      <div className="content">
         <ul className="products(">
