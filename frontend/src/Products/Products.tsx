@@ -20,9 +20,9 @@ function Products() {
     const [products, setProducts]: [Product[], (products: Product[]) => void] = useState(emptyProducts);
 
     useEffect(() => {
-        axios.get<Product[]>("https://localhost:3000/catalog/",{
+        axios.get<Product[]>("https://localhost:5121/catalog/",{
             headers: {
-                "Content-Type": "applications/json",
+                "Content-Type": "application/json",
             },
         })
         .then((response) => setProducts(response.data))
