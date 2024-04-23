@@ -19,6 +19,7 @@ function App() {
   }
   return (
     <Router>
+      <div className = "App">
         <div className = "grid-container">
             <link rel="stylesheet" href="style.css" />
             <title>JadeSprout</title>
@@ -68,7 +69,8 @@ function App() {
           </div>
         </body>
       </div>
-    </Router>
+    </div>
+  </Router>
   );
 }
 
